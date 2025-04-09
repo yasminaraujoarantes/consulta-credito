@@ -1,0 +1,35 @@
+# Diretórios de build
+/target/
+/out/
+
+# Arquivos do Maven
+.mvn/
+!.mvn/wrapper/maven-wrapper.jar
+
+# IDEs
+# IntelliJ IDEA
+.idea/
+*.iml
+
+# Eclipse
+.project
+.classpath
+.settings/
+
+# NetBeans
+nbproject/
+
+# Arquivos de log
+*.log
+
+# Dependências do Gradle (caso esteja usando)
+.gradle/
+build/
+
+# Arquivos de configuração do Spring Boot
+*.properties
+*.yml
+
+# Arquivos de configuração do sistema
+.DS_Store
+Thumbs.db

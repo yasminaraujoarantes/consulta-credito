@@ -6,13 +6,15 @@ services:
     ports:
       - "8081:8081"
     environment:
-      SPRING_DATASOURCE_URL: jdbc:postgresql://aws-0-sa-east-1.pooler.supabase.com:6543/postgres?prepareThreshold=0
-      SPRING_DATASOURCE_USERNAME: postgres.sfffybriovdedxsbzone
+      SPRING_DATASOURCE_URL: jdbc:postgresql://consulta-credito-db:5432/postgres
+      SPRING_DATASOURCE_USERNAME: postgres
       SPRING_DATASOURCE_PASSWORD: postgres
       SPRING_DATASOURCE_DRIVER-CLASS-NAME: org.postgresql.Driver
       SPRING_DATASOURCE_PLATFORM: postgres
     networks:
       - app-net
+    depends_on:
+      - consulta-credito-db
 
   # Serviço do Frontend Angular
   consulta-credito-frontend:
@@ -25,6 +27,24 @@ services:
     depends_on:
       - consulta-credito-api
 
+  # Serviço do Banco de Dados PostgreSQL
+  consulta-credito-db:
+    image: postgres:13
+    container_name: consulta-credito-db
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+      POSTGRES_DB: postgres
+    ports:
+      - "5432:5432"
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    networks:
+      - app-net
+
 networks:
   app-net:
     driver: bridge
+
+volumes:
+  postgres_data:

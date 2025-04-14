@@ -25,3 +25,7 @@ spring:
       hibernate:
         temp:
           allow_jdbc_metadata_access: false
+
+  liquibase:
+    change-log: classpath:/liquibase.xml
+    contexts: development,production

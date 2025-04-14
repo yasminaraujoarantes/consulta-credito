@@ -1,0 +1,27 @@
+server:
+  port: 8081
+
+spring:
+
+  application:
+    name: consulta-credito
+
+  datasource:
+    url: ${SPRING_DATASOURCE_URL}
+    username: ${SPRING_DATASOURCE_USERNAME}
+    password: ${SPRING_DATASOURCE_PASSWORD}
+    driver-class-name: ${SPRING_DATASOURCE_DRIVER-CLASS-NAME}
+    platform: ${SPRING_DATASOURCE_PLATFORM}
+    hikari:
+      maximum-pool-size: 5
+      data-source-properties:
+        cachePrepStmts: false
+  jpa:
+    database: POSTGRESQL
+    show-sql: false
+    hibernate:
+      ddl-auto: none
+    properties:
+      hibernate:
+        temp:
+          allow_jdbc_metadata_access: false

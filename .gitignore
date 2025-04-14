@@ -26,10 +26,6 @@ nbproject/
 .gradle/
 build/
 
-# Arquivos de configuração do Spring Boot
-*.properties
-*.yml
-
 # Arquivos de configuração do sistema
 .DS_Store
 Thumbs.db

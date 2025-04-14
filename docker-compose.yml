@@ -1,0 +1,30 @@
+services:
+  # Serviço da API Spring Boot
+  consulta-credito-api:
+    build: .
+    container_name: consulta-credito
+    ports:
+      - "8081:8081"
+    environment:
+      SPRING_DATASOURCE_URL: jdbc:postgresql://aws-0-sa-east-1.pooler.supabase.com:6543/postgres?prepareThreshold=0
+      SPRING_DATASOURCE_USERNAME: postgres.sfffybriovdedxsbzone
+      SPRING_DATASOURCE_PASSWORD: postgres
+      SPRING_DATASOURCE_DRIVER-CLASS-NAME: org.postgresql.Driver
+      SPRING_DATASOURCE_PLATFORM: postgres
+    networks:
+      - app-net
+
+  # Serviço do Frontend Angular
+  consulta-credito-frontend:
+    build: ../consulta-credito-frontend
+    container_name: consulta-credito-frontend
+    ports:
+      - "4200:80"
+    networks:
+      - app-net
+    depends_on:
+      - consulta-credito-api
+
+networks:
+  app-net:
+    driver: bridge

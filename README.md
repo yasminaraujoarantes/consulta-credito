@@ -25,7 +25,7 @@ git clone https://github.com/seu-usuario/consulta-credito.git
 git clone https://github.com/seu-usuario/consulta-credito-frontend.git
 ```
 
-2. Dentro da pasta onde estão os dois projetos, suba o ambiente:
+2. Dentro da pasta da API (consulta-credito), suba o ambiente:
 
 ```bash
 docker-compose up --build
